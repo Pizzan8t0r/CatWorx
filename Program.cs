@@ -6,13 +6,11 @@ namespace CatWorx.BadgeMaker
     {
        static void Main(string[] args)
 {
-  static List<string> GetEmployees()
+    static List<string> GetEmployees()
 {
   List<string> employees = new List<string>();
   while (true) 
   {
-    // This method doesn't need parameters, because it will know how to get employee names from the user all by itself. 
-    // Now we can move all of the employee-getting code from Main() into this new method
     Console.WriteLine("Please enter a name: (leave empty to exit): ");
     string input = Console.ReadLine() ?? "";
     if (input == "") 
@@ -28,3 +26,7 @@ namespace CatWorx.BadgeMaker
   }
  } 
 }
+// we'll hand off the list of employee names to the caller of the method, we must make sure to return it at the end of the method. 
+// This fulfills the contract we created in the method signature, which promises to return a list of strings 
+// To get the application functioning correctly, we need to call this method from Main(), 
+// in the place where we pulled out the employee-getting code
