@@ -5,18 +5,26 @@ namespace CatWorx.BadgeMaker
     class Program
     {
         static void Main(string[] args)
+        // Console has a method that allows us to read input from the command line and assign it to a variable
+        // update the Main() method to ask the user for an employee name and then immediately display it
         {
-         // this bad boy declares a list and its data types using the angle bracket notation, similar to the dictionary
         List<string> employees = new List<string>() { "adam", "amy" };
         employees.Add("barbara");
-        employees.Add("billy");
-        for (int i = 0; i < employees.Count; i++)
-        {
+      employees.Add("billy");
+      Console.WriteLine("Please enter a name: ");
+      // Get a name from the console and assign it to a variable
+      string input = Console.ReadLine() ?? "";
+      employees.Add(input);
+      for (int i = 0; i < employees.Count; i++) 
+
+      {
         Console.WriteLine(employees[i]);
+
+      }
         }
         } 
     }
-}
+
 // adam
 // amy
 // barbara
