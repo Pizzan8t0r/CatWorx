@@ -6,23 +6,25 @@ namespace CatWorx.BadgeMaker
     {
        static void Main(string[] args)
 {
+  static List<string> GetEmployees()
+{
   List<string> employees = new List<string>();
-  // Collect user values until the value is an empty string
-  while (true)
+  while (true) 
   {
-    Console.WriteLine("Please enter a name: ");
+    // This method doesn't need parameters, because it will know how to get employee names from the user all by itself. 
+    // Now we can move all of the employee-getting code from Main() into this new method
+    Console.WriteLine("Please enter a name: (leave empty to exit): ");
     string input = Console.ReadLine() ?? "";
-    employees.Add(input);
-  } 
-  for (int i = 0; i < employees.Count; i++) 
-  {
-    Console.WriteLine(employees[i]);
-  }
-}
-    } 
- }
+    if (input == "") 
+    {
+      break;
+    }
 
-// adam
-// amy
-// barbara
-// billy
+    employees.Add(input);
+  }
+  // This is important!
+  return employees;
+}
+  }
+ } 
+}
