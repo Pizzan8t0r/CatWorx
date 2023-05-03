@@ -4,9 +4,18 @@ namespace CatWorx.BadgeMaker
 {
     class Program
     {
-       static void Main(string[] args)
+      static void Main(string[] args)
 {
-    static List<string> GetEmployees()
+  // This is our employee-getting code now
+  List<string> employees = GetEmployees();
+
+  for (int i = 0; i < employees.Count; i++) 
+  {
+    Console.WriteLine(employees[i]);
+  }
+}
+
+static List<string> GetEmployees()
 {
   List<string> employees = new List<string>();
   while (true) 
@@ -17,7 +26,7 @@ namespace CatWorx.BadgeMaker
     {
       break;
     }
-
+      
     employees.Add(input);
   }
   // This is important!
@@ -26,7 +35,5 @@ namespace CatWorx.BadgeMaker
   }
  } 
 }
-// we'll hand off the list of employee names to the caller of the method, we must make sure to return it at the end of the method. 
-// This fulfills the contract we created in the method signature, which promises to return a list of strings 
-// To get the application functioning correctly, we need to call this method from Main(), 
-// in the place where we pulled out the employee-getting code
+// The left-hand side of the statement assigns a List<string> to employees. The right-hand side calls the new method, which returns a List<string>. 
+// This is very similar to the original employees declaration that we moved into GetEmployees()
