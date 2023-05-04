@@ -5,41 +5,44 @@ namespace CatWorx.BadgeMaker
     class Program
 {
   // get employee method
-  static List<string> GetEmployees()
+  static List<Employee> GetEmployees()
   {
-    List<string> employees = new List<string>();
+    List<Employee> employees = new List<Employee>();
     while (true)
-    {
-
-      Console.WriteLine("Please enter a name: (leave empty to exit): ");
-
-      string input = Console.ReadLine() ?? "";
-
-      if (input == "")
-      {
-        break;
-      }
-      employees.Add(input);
-    }
-    return employees;
+{
+  Console.WriteLine("Please enter a name: (leave empty to exit): ");
+  string input = Console.ReadLine() ?? "";
+  if (input == "")
+  {
+    break;
   }
+  Employee currentEmployee = new Employee(input, "Smith");
+  // Add currentEmployee, not a string
+  employees.Add(currentEmployee);
+}
+    return employees;
+    // Create a new Employee instance
+   
+  }
+  
   // if a static method wants to call another method inside the same class directly, that method must also be static
 // print employee method
-  static void PrintEmployees(List<string> employees)
+  static void PrintEmployees(List<Employee> employees)
   {
     for (int i = 0; i < employees.Count; i++)
     {
-      Console.WriteLine(employees[i]);
+      Console.WriteLine(employees[i].GetFullName());
     }
   }
 
   static void Main(string[] args)
   {
-    List<string> employees = GetEmployees();
+    List<Employee> employees = GetEmployees();
     PrintEmployees(employees);
    }
   }
  }
+ // Create a new Employee instance
  
 // GetEmployees() had a return type but no parameters. 
 // PrintEmployees() will require a parameter but won't have a return type.
