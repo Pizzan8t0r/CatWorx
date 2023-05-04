@@ -24,7 +24,7 @@ while(true)
   Console.Write("Enter last name: ");
   string lastName = Console.ReadLine() ?? "";
   Console.Write("Enter ID: ");
-  int id = Console.ReadLine() ?? "";
+  int id = Int32.Parse(Console.ReadLine() ?? "");
   Console.Write("Enter Photo URL:");
   string photoUrl = Console.ReadLine() ?? "";
   Employee currentEmployee = new Employee(firstName, lastName, id, photoUrl);
@@ -38,10 +38,12 @@ while(true)
 // print employee method
   static void PrintEmployees(List<Employee> employees)
   {
-    for (int i = 0; i < employees.Count; i++)
-    {
-      Console.WriteLine(employees[i].GetFullName());
-    }
+    for (int i = 0; i < employees.Count; i++) 
+{
+  // print out all of the employee information for each employee. In the PrintEmployees() method of Program, update the code in the for block
+  string template = "{0,-10}\t{1,-20}\t{2}";
+  Console.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetFullName(), employees[i].GetPhotoUrl()));
+}
   }
 
   static void Main(string[] args)
