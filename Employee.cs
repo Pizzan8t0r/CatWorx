@@ -8,10 +8,12 @@ namespace CatWorx.BadgeMaker
        public int Id;
        public string PhotoUrl;
        // update Employee to add a constructor that accepts a first name and sets the FirstName property
-       public Employee(string firstName, string lastName) {
-        FirstName = firstName;
-        LastName = lastName;
-       }
+    public Employee(string firstName, string lastName, int id, string photoUrl) {
+    FirstName = firstName;
+    LastName = lastName;
+    Id = id;
+    PhotoUrl = photoUrl;
+}
        public string GetFullName() {
         return FirstName + "" + LastName;
        }
