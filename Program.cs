@@ -33,31 +33,14 @@ while(true)
 
   return employees;
 }
-  
-  // if a static method wants to call another method inside the same class directly, that method must also be static
-// print employee method
-  static void PrintEmployees(List<Employee> employees)
-  {
-    for (int i = 0; i < employees.Count; i++) 
-{
-  // print out all of the employee information for each employee. In the PrintEmployees() method of Program, update the code in the for block
-  string template = "{0,-10}\t{1,-20}\t{2}";
-  Console.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetFullName(), employees[i].GetPhotoUrl()));
-}
-  }
+
+ 
 
   static void Main(string[] args)
   {
     List<Employee> employees = GetEmployees();
-    PrintEmployees(employees);
+   Util.PrintEmployees(employees);
    }
   }
  }
- // Create a new Employee instance
  
-// GetEmployees() had a return type but no parameters. 
-// PrintEmployees() will require a parameter but won't have a return type.
-// Because we'll hand off the list of employee names to the caller of the method, we must make sure to return it at the end of the method. 
-// This fulfills the contract we created in the method signature, which promises to return a list of strings
-// C# provides a dictionary structure, which can store keys and values similar to Javascript objects. This might seem like a candidate for storing the employee data  
-// Dictionaries can only store values of the same type
